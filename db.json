@@ -1,0 +1,18 @@
+{
+   "locations": [
+     {
+       "id": 0,
+       "name": "www.yahoo.com",
+       "port": 80,
+       "should_fail": true,
+       "should_succeed": true
+     },
+     {
+       "id": 0,
+       "name": "www.google.com",
+       "port": 443,
+       "should_fail": false,
+       "should_succeed": true
+    }
+ ]
+ }
