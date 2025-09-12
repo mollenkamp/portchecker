@@ -1,5 +1,6 @@
 import { RouterModule } from '@angular/router';
 import { Component } from '@angular/core';
+import { Home } from "./home/home";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ import { Component } from '@angular/core';
         <router-outlet></router-outlet>
       </section>
     </main>
-  `
+  `,
 })
 
 export class App {}

@@ -28,15 +28,18 @@ import {HousingLocationInfo} from '../housinglocation';
       </section>
     </article>
   `,
-  styleUrl: './details.css'
+  styleUrls: ['./details.css']
 })
 
 export class Details {
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService = inject(HousingService);
   housingLocation: HousingLocationInfo | undefined;
+
   constructor() {
     const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation = this.housingService.getHousingLocationById(housingLocationId);
+    this.housingService.getHousingLocationById(housingLocationId).then(location => {
+      this.housingLocation = location;
+    });
   }
 }
