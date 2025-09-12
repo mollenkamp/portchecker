@@ -1,10 +1,11 @@
 import { Component, input } from '@angular/core';
-import { SiteInfo } from '../siteinfo';
+import { SiteLocationInfo } from '../siteinfo';
+import { SiteLocation } from '../site-location/site-location';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-site-location',
-  imports: [RouterModule, siteInfo],
+  imports: [RouterModule, SiteLocationInfo, SiteLocation],
   template: `
     <section class="listing">
       <a [routerLink]="['/details', siteInfo().id]">Learn More</a>
