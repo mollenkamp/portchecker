@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {siteInfo} from '../housing-location/housing-location';
+import {siteInfo} from '../site-location/site-location';
 import {HousingService} from '../housing.service';
 import {SiteInfo} from '../siteinfo';
 

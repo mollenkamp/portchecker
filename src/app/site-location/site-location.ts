@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-site-location',
-  imports: [RouterModule],
+  imports: [RouterModule, siteInfo],
   template: `
     <section class="listing">
       <a [routerLink]="['/details', siteInfo().id]">Learn More</a>
@@ -18,9 +18,9 @@ import { RouterModule } from '@angular/router';
       <p class="listing-location">{{ siteInfo().port }}, {{ siteInfo().success }}</p>
     </section>
   `,
-  styleUrl: './housing-location.css'
+  styleUrl: './site-location.css'
 })
 
 export class siteInfo {
-  siteInfo = input.required<SiteInfo>();  
+  SiteInfo = input.required<SiteInfo>();  
 }
