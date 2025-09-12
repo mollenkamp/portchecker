@@ -3,7 +3,7 @@ import { SiteInfo } from '../siteinfo';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-housing-location',
+  selector: 'app-site-location',
   imports: [RouterModule],
   template: `
     <section class="listing">
