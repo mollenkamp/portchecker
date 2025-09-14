@@ -1,0 +1,18 @@
+{
+   "locations": [
+     {
+       "id": 0,
+       "host": "www.yahoo.com",
+       "timeout": 5,
+       "port": 80,
+       "expect_open": false
+     },
+     {
+       "id": 1,
+       "host": "www.google.com",
+       "port": 443,
+       "timeout": 5,
+       "expect_open": true
+    }
+ ]
+ }

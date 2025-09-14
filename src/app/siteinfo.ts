@@ -1,10 +1,15 @@
 export interface SiteInfo {
   id: number;
-  name: string;
+  ip: string;
+  errno: number;
+  errstr: string;
+}
+
+export interface SiteRequest {
+  id: number;
+  host: string;
   port: number;
-  should_fail: boolean;
-  should_succeed: boolean;
-  success?: boolean;
-  checked?: string;
-  photo?: string;
+  timeout: number;
+  expect_open: boolean;
+  info?: SiteInfo;
 }

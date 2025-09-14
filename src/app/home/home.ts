@@ -1,11 +1,11 @@
 import {Component, inject} from '@angular/core';
-import {siteInfo} from '../site-location/site-location';
-import {HousingService} from '../housing.service';
-import {SiteInfo} from '../siteinfo';
+import {SiteService} from '../site.service';
+import {SiteRequest} from '../siteinfo';
+import {Site} from '../site/site';
 
 @Component({
   selector: 'app-home',
-  imports: [siteInfo], 
+  imports: [Site], 
   template: `
     <section>
       <form>
@@ -14,33 +14,33 @@ import {SiteInfo} from '../siteinfo';
       </form>
     </section>
     <section class="results">
-      @for(siteInfo of filteredLocationList; track $index) {
-        <app-site-location [siteInfo]="siteInfo"></app-site-location>
+      @for(siteRequest of filteredLocationList; track $index) {
+        <app-site [siteRequest]="siteRequest"></app-site>
       }
       </section>
   `
 })
 export class Home {
-  filteredLocationList: SiteInfo[] = [];
-  siteInfoList: SiteInfo[] = [];
-  housingService: HousingService = inject(HousingService);
- 
+  filteredLocationList: SiteRequest[] = [];
+  siteRequestList: SiteRequest[] = [];
+  siteService: SiteService = inject(SiteService);
+
   constructor() {
-    this.housingService
-      .getAllSiteInfos()
-      .then((siteInfoList: SiteInfo[]) => {
-        this.siteInfoList = siteInfoList;
-        this.filteredLocationList = siteInfoList;
+    this.siteService
+      .getAllSiteRequests()
+      .then((siteRequestList: SiteRequest[]) => {
+        this.siteRequestList = siteRequestList;
+        this.filteredLocationList = siteRequestList;
       });
   }  
 
   filterResults(text: string) {
     if (!text) {
-      this.filteredLocationList = this.siteInfoList;
+      this.filteredLocationList = this.siteRequestList;
       return;
     }
-    this.filteredLocationList = this.siteInfoList.filter((siteInfo) =>
-      siteInfo.name.toLowerCase().includes(text.toLowerCase()),
+    this.filteredLocationList = this.siteRequestList.filter((siteRequest) =>
+      siteRequest.host.toLowerCase().includes(text.toLowerCase()),
     );
   }
 }
