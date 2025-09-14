@@ -6,20 +6,10 @@ import {Site} from '../site/site';
 @Component({
   selector: 'app-home',
   imports: [Site], 
-  template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filter by Site" #filter />
-        <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
-      </form>
-    </section>
-    <section class="results">
-      @for(siteRequest of filteredLocationList; track $index) {
-        <app-site [siteRequest]="siteRequest"></app-site>
-      }
-      </section>
-  `
+  styleUrl: './home.css',
+  templateUrl: './home.html'
 })
+
 export class Home {
   filteredLocationList: SiteRequest[] = [];
   siteRequestList: SiteRequest[] = [];
@@ -30,12 +20,14 @@ export class Home {
       .getAllSiteRequests()
       .then((siteRequestList: SiteRequest[]) => {
         this.siteRequestList = siteRequestList;
-        this.filteredLocationList = siteRequestList;
+        this.filterResults('');
       });
+
   }  
 
   filterResults(text: string) {
-    if (!text) {
+    if(!text)
+    {
       this.filteredLocationList = this.siteRequestList;
       return;
     }

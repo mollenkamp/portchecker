@@ -1,22 +1,13 @@
-import { RouterModule } from '@angular/router';
-import { Component } from '@angular/core';
-import { Home } from "./home/home";
+import { Component, signal } from '@angular/core';
+import { RouterOutlet, RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterModule],
-  template: `
-    <main>
-      <a [routerLink]="['/']">
-        <header class="brand-name">
-          <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true" />
-        </header>
-      </a>
-      <section class="content">
-        <router-outlet></router-outlet>
-      </section>
-    </main>
-  `,
+  imports: [RouterOutlet, RouterLink],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-
-export class App {}
+export class App {
+  protected readonly title = signal('Port Checker');
+}

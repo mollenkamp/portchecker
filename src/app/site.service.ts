@@ -7,12 +7,12 @@ import { SiteInfo, SiteRequest } from './siteinfo';
 
 export class SiteService {
   
-  url = 'https://port-uat.freshupgrades.com/db.json';
+  url = 'https://port-uat.freshupgrades.com/json.php';
   check = 'https://port-uat.freshupgrades.com/check.php';
-
+  
   async getAllSiteRequests(): Promise<SiteRequest[]> {
     const data = await fetch(this.url);    
-    return (await data.json()) ?? [];
+    return await data.json() ?? [];
   }
 
   async getSiteRequestById(id: number): Promise<SiteRequest | undefined> {
@@ -40,9 +40,7 @@ export class SiteService {
       body: text
     });
     
-    const json = await response.json();
-    data.info = json as SiteInfo;
-
+    data.info = await response.json();
     return data;
   }
 }

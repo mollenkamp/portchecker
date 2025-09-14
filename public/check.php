@@ -37,7 +37,6 @@ header("Expires: 0"); // Proxies.
 
 $json = json_decode(file_get_contents("php://input"), false);
 
-
 $hostname = $json->host;
 $ip =  gethostbyname($json->host);
 $timeout = $json->timeout > 60 ? 60 : $json->timeout;
