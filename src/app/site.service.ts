@@ -7,8 +7,8 @@ import { SiteInfo, SiteRequest } from './siteinfo';
 
 export class SiteService {
   
-  url = 'http://localhost:8080/json.php';
-  check = 'http://localhost:8080/check.php';
+  url = 'https://port-uat.freshupgrades.com/json.php';
+  check = 'https://port-uat.freshupgrades.com/check.php';
   
   async getAllSiteRequests(): Promise<SiteRequest[]> {
     const data = await fetch(this.url);    
