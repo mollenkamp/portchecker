@@ -1,16 +1,18 @@
 <?php
 
-$json = json_decode(file_get_contents("./db.json"), false);
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0"); // Proxies.
+
+$json = json_decode(file_get_contents("./url.json"), false);
 
 foreach ($json as $url) {
 
-    echo $url->host;
-
-   // Initialize a cURL session
+    // Initialize a cURL session
     $ch = curl_init();
 
     // Set the URL to fetch
-    curl_setopt($ch, CURLOPT_URL, "https://screenshot.freshupgrades.com?url=" . $url->host);
+    curl_setopt($ch, CURLOPT_URL, "https://screenshot.freshupgrades.com?url=" . $url);
 
     // Return the transfer as a string instead of outputting it directly
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -21,6 +23,6 @@ foreach ($json as $url) {
     // Close the cURL session
     curl_close($ch);
     // Save the output to a file
-    file_put_contents("./" . $url->host . ".png", $output);
+    file_put_contents("./" . $url . ".png", $output);
 }
 
