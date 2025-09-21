@@ -1,14 +1,21 @@
 [
      {
-       "id": 0,
-       "host": "www.yahoo.com",
+       "id": 1,
+       "host": "www.bn.com",
        "timeout": 5,
-       "port": 80,
-       "expect_open": false
+       "port": 443,
+       "expect_open": true
      },
      {
-       "id": 1,
+       "id": 2,
        "host": "www.google.com",
+       "port": 443,
+       "timeout": 5,
+       "expect_open": true
+    },
+    {
+       "id": 3,
+       "host": "www.yahoo.com",
        "port": 443,
        "timeout": 5,
        "expect_open": true
