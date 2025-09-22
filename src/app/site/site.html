@@ -1,6 +1,6 @@
-<section class="listing" >
+<section class="listing">
+    <p class="listing-heading">{{ siteRequest().host }}: {{ siteRequest().port }}</p>
     <a href="/details/{{siteRequest().id}}">
-        <img style="width: 160px; height: auto; " src="{{ siteRequest().host }}.png" />
+        <img src="{{ siteRequest().host }}.png" class="listing-image" style="width: 480px; height:auto;"/>
     </a>
-    <h2 class="listing-heading">{{ siteRequest().host }}: {{ siteRequest().port }}</h2>
 </section>
